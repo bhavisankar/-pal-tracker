@@ -3,7 +3,6 @@ sudo: false
 notifications:
   email: false
 env:
-  #  - TRAVIS_BUILD_NUMBER="pal-tracker1.0_SNAPSHOT"
   - RELEASE_TAG="release-$TRAVIS_BUILD_NUMBER"
 if: tag IS blank
 
