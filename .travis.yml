@@ -16,7 +16,7 @@ jobs:
       install: skip
       script: ./gradlew clean build
       before_deploy:
-        - export OAUTH_TOCKEN = $GITHUB_OAUTH_TOKEN
+        - export OAUTH_TOCKEN="$GITHUB_OAUTH_TOKEN"
         - export RELEASE_TAG="release-$TRAVIS_BUILD_NUMBER"
         - git config --local user.name "Travis CI"
         - git config --local user.email "travis@example.com"
