@@ -3,6 +3,7 @@ sudo: false
 notifications:
   email: false
 env:
+  #  - TRAVIS_BUILD_NUMBER="pal-tracker1.0_SNAPSHOT"
   - RELEASE_TAG="release-$TRAVIS_BUILD_NUMBER"
 if: tag IS blank
 
@@ -15,6 +16,7 @@ jobs:
       install: skip
       script: ./gradlew clean build
       before_deploy:
+        - export RELEASE_TAG="release-$TRAVIS_BUILD_NUMBER"
         - git config --local user.name "Travis CI"
         - git config --local user.email "travis@example.com"
         - git tag -f $RELEASE_TAG
