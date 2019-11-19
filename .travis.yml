@@ -16,14 +16,14 @@ jobs:
       install: skip
       script: ./gradlew clean build
       before_deploy:
-        - export OAUTH_TOCKEN="$GITHUB_OAUTH_TOKEN"
         - export RELEASE_TAG="release-$TRAVIS_BUILD_NUMBER"
         - git config --local user.name "Travis CI"
         - git config --local user.email "travis@example.com"
         - git tag -f $RELEASE_TAG
       deploy:
+        edge: true
         provider: releases
-        api_key: "8125bcef4cfda834f1336067ebd60710aaba5d2f"
+        api_key: $GITHUB_OAUTH_TOKEN
         file: "build/libs/pal-tracker.jar"
         skip_cleanup: true
     - stage: deploy to cf
