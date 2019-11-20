@@ -9,6 +9,7 @@ service_key="${4:-flyway-migration-key}"
 
 function main() {
 
+    echo "Input values: $app_name $script_dir $service_name $service_key"
     echo "Creating service key, if necessary ..."
 
     cf create-service-key $service_name $service_key > /dev/null
